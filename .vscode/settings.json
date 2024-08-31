@@ -1,0 +1,15 @@
+{
+    "makefile.configureOnOpen": false,
+    "makefile.launchConfigurations": [
+        {
+            "cwd": "/home/lucas/Documents/pong",
+            "binaryPath": "/home/lucas/Documents/pong/pong",
+            "binaryArgs": []
+        }
+    ],
+    "files.associations": {
+        "stdbool.h": "c",
+        "sdl.h": "c",
+        "stdio.h": "c"
+    }
+}
