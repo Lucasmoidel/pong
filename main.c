@@ -10,8 +10,8 @@ SDL_Window* window = NULL;
 SDL_Renderer* renderer = NULL;
 int game_running = false;
 int last_frame_time = 0;
-int p1score = 0;
-int p2score = 0;
+int p1score;
+int p2score;
 int yspeed = 50;
 int ballspeed = 3;
 float deltatime;
@@ -45,6 +45,8 @@ void destroy_window();
 
 void setup() {
     font = TTF_OpenFont("comic.ttf", 40);
+    p1score = 0;
+    p2score = 0;
     p1paddle.x = 10;
     p1paddle.y = Win_height/2;
     p1paddle.width = 10;
