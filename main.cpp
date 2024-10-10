@@ -1,6 +1,7 @@
-#include <iostream>
+#include <stdio.h>
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
+#include <stdbool.h>
 
 #define Win_width 800
 #define Win_height 600
@@ -187,10 +188,10 @@ void render() {
     (int)p2paddle.height 
     };
     SDL_Rect ballrect = {
-        (int)ball.x,
-        (int)ball.y,
-        (int)ball.w,
-        (int)ball.h
+    (int)ball.x,
+    (int)ball.y,
+    (int)ball.w,
+    (int)ball.h
     };
     SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
     SDL_RenderFillRect(renderer, &ballrect);
@@ -211,7 +212,7 @@ void display_text() {
     SDL_Texture* p1ftexture = NULL;
     SDL_Texture* p2ftexture = NULL;
     if (font == NULL) {
-        std::cout << "font file eror\n";
+        printf("font file eror\n");
         game_running = false;
     }
     else {
@@ -220,13 +221,13 @@ void display_text() {
         SDL_Surface* p1text_surface = TTF_RenderText_Solid(font, p1text, text_color);
         SDL_Surface* p2text_surface = TTF_RenderText_Solid(font, p2text, text_color);
         if (p1text_surface == NULL || p2text_surface == NULL) {
-            std::cout << "font surface error\n";
+            printf("font surface error\n");
             game_running = false;
         } else {
             p1ftexture = SDL_CreateTextureFromSurface(renderer, p1text_surface);
             p2ftexture = SDL_CreateTextureFromSurface(renderer, p2text_surface);
             if (p1ftexture == NULL || p2ftexture == NULL) {
-                std::cout << "font texture error\n";
+                printf("font texture error\n");
                 game_running = false;
             }
             else {
@@ -257,7 +258,7 @@ void destroy_window() {
 int initialize_window(void) {
     TTF_Init();
     if (SDL_Init(SDL_INIT_EVERYTHING) != 0 ) {
-        std::cout << "init sdl failed\n";
+        printf("init sdl failed\n");
         return 0;
     }
 
@@ -266,14 +267,14 @@ int initialize_window(void) {
     
 
     if (!window) {
-        std::cout << "failed to create window\n";
+        printf ("failed to create window\n");
         return 0;
     }
 
     renderer = SDL_CreateRenderer(window, -1, 0);
 
     if (!renderer) {
-        std::cout << "failed to create renderer\n";
+        printf ("failed to create renderer\n");
         return 0;
     }
 
